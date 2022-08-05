@@ -1,4 +1,4 @@
-const { MongoClient } = require('mongodb');
+const {MongoClient} = require('mongodb');
 const {csvImporter} = require("./importer");
 
 const url = process.env.MONGODB_URL + "?retryWrites=true&writeConcern=majority"
@@ -8,6 +8,7 @@ const dbName = 'home-automation';
 
 const main = async () => {
     const db = client.db(dbName);
+    await db.dropDatabase()
     await csvImporter(db, "devices.csv", "devices")
     return 'done.';
 };
