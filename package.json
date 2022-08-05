@@ -1,0 +1,16 @@
+{
+  "name": "home-automation-seed",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "build-docker": "docker build -t shiviraj/home-automation-seed ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^4.8.1"
+  }
+}
