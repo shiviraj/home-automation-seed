@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
-    "docker:build": "docker build -t shiviraj/home-automation-seed .",
-    "docker:push": "yarn docker:build && docker push shiviraj/home-automation-seed:latest"
+    "docker:push": "docker buildx build --platform=linux/amd64,linux/arm/v7 -t shiviraj/home-automation-seed:latest --push ."
   },
   "keywords": [],
   "author": "",

@@ -1,11 +1,11 @@
-FROM --platform=linux/amd64 node:16
+FROM node:18.7.0-slim
 
 WORKDIR /app
 
-COPY ["package.json", "yarn.lock", "./"]
+COPY ["package.json", "package-lock.json", "./"]
 
-RUN yarn install
+RUN npm install
 
 COPY . .
 
-CMD [ "yarn", "start" ]
+CMD [ "npm", "start" ]
