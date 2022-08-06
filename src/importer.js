@@ -7,11 +7,14 @@ const csvImporter = async (db, fileName, collectionName) => {
     const [header, ...listItems] = csvData.split("\n").map(row => row.split(","))
     const items = listItems.map(itemRow => {
         return header.reduce((item, headerItem, index) => {
-             item[headerItem] = Number.isNaN(+itemRow[index]) ? itemRow[index] : +itemRow[index];
-             return item
+            item[headerItem] = Number.isNaN(+itemRow[index]) ? itemRow[index] : +itemRow[index];
+            return item
         }, {})
     })
-    await db.collection(collectionName).insertMany(items, {ordered: true})
+
+    const collection = db.collection(collectionName);
+    await collection.drop()
+    await collection.insertMany(items, {ordered: true})
 }
 
 module.exports = {csvImporter}
