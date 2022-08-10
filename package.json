@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "ts-node-dev src/index.ts",
-    "build": "tsc",
+    "build": "rm -rf dist && tsc",
+    "docker:push": "npm run build && docker buildx build --platform=linux/amd64,linux/arm64 -t shiviraj/home-automation-seed:latest --push .",
     "start": "node dist/src"
   },
   "repository": {
