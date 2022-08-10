@@ -4,13 +4,28 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "docker:push": "docker buildx build --platform=linux/amd64,linux/arm/v7 -t shiviraj/home-automation-seed:latest --push ."
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node-dev src/index.ts",
+    "build": "tsc",
+    "start": "node dist/src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shiviraj/home-automation-seed.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shiviraj/home-automation-seed/issues"
+  },
+  "homepage": "https://github.com/shiviraj/home-automation-seed#readme",
   "dependencies": {
-    "mongodb": "^4.8.1"
+    "raspberrypi-db": "^0.0.19",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4"
+  },
+  "devDependencies": {
+    "@types/sqlite3": "^3.1.8"
   }
 }
