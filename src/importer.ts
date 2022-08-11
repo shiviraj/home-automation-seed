@@ -16,7 +16,8 @@ const csvImporter = async (db: DB, fileName: string, collectionName: string) => 
 
     const collection = db.collection(collectionName);
     await collection.dropCollection()
-    await collection.insertMany(items)
+    const newCollection = db.collection(collectionName);
+    await newCollection.insertMany(items)
 }
 
 export {csvImporter}
