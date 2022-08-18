@@ -1,4 +1,4 @@
-location,name,number,nodeMcu,pin,type,value
+location,name,number,node,pin,type,value
 KASHI,BULB,1,node-1,1,OUTPUT,0.0
 KASHI,BULB,2,node-1,2,OUTPUT,0.0
 KASHI,BULB,3,node-1,3,OUTPUT,0.0
