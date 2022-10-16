@@ -1,0 +1,281 @@
+[
+  {
+    "name": "Turn on Outdoor lights",
+    "state": "active",
+    "trigger": {
+      "type": "SCHEDULED",
+      "at": [
+        "SUN_SET"
+      ]
+    },
+    "conditions": [],
+    "actions": [
+      {
+        "type": "DEVICE",
+        "identifier": {
+          "location": "OUTDOOR",
+          "name": "BULB",
+          "number": 1
+        },
+        "update": {
+          "value": 1
+        }
+      },
+      {
+        "type": "DEVICE",
+        "identifier": {
+          "location": "OUTDOOR",
+          "name": "BULB",
+          "number": 2
+        },
+        "update": {
+          "value": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "Turn off Outdoor lights",
+    "state": "active",
+    "trigger": {
+      "type": "SCHEDULED",
+      "at": [
+        "SUN_RISE"
+      ]
+    },
+    "conditions": [],
+    "actions": [
+      {
+        "type": "DEVICE",
+        "identifier": {
+          "location": "OUTDOOR",
+          "name": "BULB",
+          "number": 1
+        },
+        "update": {
+          "value": 0
+        }
+      },
+      {
+        "type": "DEVICE",
+        "identifier": {
+          "location": "OUTDOOR",
+          "name": "BULB",
+          "number": 2
+        },
+        "update": {
+          "value": 0
+        }
+      }
+    ]
+  },
+  {
+    "name": "KITCHEN_MOTION_ON",
+    "state": "active",
+    "trigger": {
+      "type": "SENSOR",
+      "at": [
+        "ON"
+      ]
+    },
+    "conditions": [],
+    "actions": [
+      {
+        "type": "DEVICE",
+        "identifier": {
+          "location": "KITCHEN",
+          "name": "BULB",
+          "number": 1
+        },
+        "update": {
+          "value": 1
+        }
+      },
+      {
+        "type": "DEVICE",
+        "identifier": {
+          "location": "KITCHEN",
+          "name": "BULB",
+          "number": 2
+        },
+        "update": {
+          "value": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "KITCHEN_MOTION_OFF",
+    "state": "active",
+    "trigger": {
+      "type": "SENSOR",
+      "at": [
+        "OFF"
+      ]
+    },
+    "conditions": [],
+    "actions": [
+      {
+        "type": "ROUTINE_TRIGGER_UPDATE",
+        "identifier": {
+          "name": "KITCHEN_LIGHT_OFF"
+        },
+        "update": {
+          "type": "TIME",
+          "value": "2"
+        }
+      }
+    ]
+  },
+  {
+    "name": "KITCHEN_LIGHT_OFF",
+    "state": "active",
+    "trigger": {
+      "type": "SCHEDULED",
+      "at": [
+        "00:00"
+      ]
+    },
+    "conditions": [
+      {
+        "orConditions": [
+          {
+            "operator": "EQ",
+            "type": "DEVICE",
+            "identifier": {
+              "location": "KITCHEN",
+              "name": "MOTION SENSOR"
+            },
+            "condition": {
+              "key": "value",
+              "value": 0
+            }
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "type": "DEVICE",
+        "identifier": {
+          "location": "KITCHEN",
+          "name": "BULB",
+          "number": 1
+        },
+        "update": {
+          "value": 0
+        }
+      },
+      {
+        "type": "DEVICE",
+        "identifier": {
+          "location": "KITCHEN",
+          "name": "BULB",
+          "number": 2
+        },
+        "update": {
+          "value": 0
+        }
+      }
+    ]
+  },
+  {
+    "name": "ROOM_1_MOTION_ON",
+    "state": "active",
+    "trigger": {
+      "type": "SENSOR",
+      "at": [
+        "ON"
+      ]
+    },
+    "conditions": [],
+    "actions": [
+      {
+        "type": "DEVICE",
+        "identifier": {
+          "location": "ROOM 1",
+          "name": "BULB",
+          "number": 1
+        },
+        "update": {
+          "value": 1
+        }
+      },
+      {
+        "type": "DEVICE",
+        "identifier": {
+          "location": "ROOM 1",
+          "name": "BULB",
+          "number": 2
+        },
+        "update": {
+          "value": 1
+        }
+      }
+    ]
+  },
+  {
+    "name": "ROOM_1_MOTION_OFF",
+    "state": "active",
+    "trigger": {
+      "type": "SENSOR",
+      "at": [
+        "OFF"
+      ]
+    },
+    "conditions": [],
+    "actions": [
+      {
+        "type": "ROUTINE_TRIGGER_UPDATE",
+        "identifier": {
+          "name": "ROOM_1_LIGHT_OFF"
+        },
+        "update": {
+          "type": "TIME",
+          "value": "2"
+        }
+      }
+    ]
+  },
+  {
+    "name": "ROOM_1_LIGHT_OFF",
+    "state": "active",
+    "trigger": {
+      "type": "SCHEDULED",
+      "at": [
+        "00:00"
+      ]
+    },
+    "conditions": [
+      {
+        "orConditions": [
+          {
+            "operator": "EQ",
+            "type": "DEVICE",
+            "identifier": {
+              "location": "ROOM 1",
+              "name": "MOTION SENSOR"
+            },
+            "condition": {
+              "key": "value",
+              "value": 0
+            }
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "type": "DEVICE",
+        "identifier": {
+          "location": "ROOM 1",
+          "name": "BULB",
+          "number": 1
+        },
+        "update": {
+          "value": 0
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "label": "Longitude",
+    "name": "LONGITUDE",
+    "value": "77.4977",
+    "type": "number"
+  },
+  {
+    "label": "Latitude",
+    "name": "LATITUDE",
+    "value": "27.2046",
+    "type": "number"
+  },
+  {
+    "label": "Kitchen Last Motion Movement",
+    "name": "KITCHEN_MOTION_OFF_TIME",
+    "value": "",
+    "type": "Date"
+  }
+]

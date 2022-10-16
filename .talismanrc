@@ -1,0 +1,4 @@
+fileignoreconfig:
+- filename: src/resource/routine.json
+  checksum: 474a364e11207c2243e9df600b4f902a5a2653e81dc47efc830d8944e7272132
+version: ""
