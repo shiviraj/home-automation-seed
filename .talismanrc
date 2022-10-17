@@ -2,3 +2,7 @@ fileignoreconfig:
 - filename: src/resource/routine.json
   checksum: 474a364e11207c2243e9df600b4f902a5a2653e81dc47efc830d8944e7272132
 version: ""
+fileignoreconfig:
+- filename: src/resource/routine.json
+  checksum: 5ccfa5abb38c7efc9a1dd4368c18400031d1b67fc37d112b92b61a5e9d4a6652
+version: ""
