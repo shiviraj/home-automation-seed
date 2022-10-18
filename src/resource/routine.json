@@ -70,12 +70,12 @@
     ]
   },
   {
-    "name": "Kitchen Light On",
+    "name": "KITCHEN_MOTION_ON",
     "state": "active",
     "trigger": {
-      "type": "SCHEDULED",
+      "type": "SENSOR",
       "at": [
-        "SUN_SET"
+        "ON"
       ]
     },
     "conditions": [],
@@ -90,44 +90,7 @@
         "update": {
           "value": 1
         }
-      }
-    ]
-  },
-  {
-    "name": "Kitchen Light Off",
-    "state": "active",
-    "trigger": {
-      "type": "SCHEDULED",
-      "at": [
-        "21:30"
-      ]
-    },
-    "conditions": [],
-    "actions": [
-      {
-        "type": "DEVICE",
-        "identifier": {
-          "location": "KITCHEN",
-          "name": "BULB",
-          "number": 1
-        },
-        "update": {
-          "value": 0
-        }
-      }
-    ]
-  },
-  {
-    "name": "KITCHEN_MOTION_ON",
-    "state": "active",
-    "trigger": {
-      "type": "SENSOR",
-      "at": [
-        "ON"
-      ]
-    },
-    "conditions": [],
-    "actions": [
+      },
       {
         "type": "DEVICE",
         "identifier": {
@@ -189,24 +152,20 @@
             }
           }
         ]
-      },
-      {
-        "orConditions": [
-          {
-            "operator": "GT",
-            "type": "TIME",
-            "identifier": {
-              "operator": "BETWEEN"
-            },
-            "condition": {
-              "start": "SUN_SET",
-              "end": "21:30"
-            }
-          }
-        ]
       }
     ],
     "actions": [
+      {
+        "type": "DEVICE",
+        "identifier": {
+          "location": "KITCHEN",
+          "name": "BULB",
+          "number": 1
+        },
+        "update": {
+          "value": 0
+        }
+      },
       {
         "type": "DEVICE",
         "identifier": {
@@ -305,17 +264,6 @@
               "start": "SUN_RISE",
               "end": "SUN_SET"
             }
-          },
-          {
-            "operator": "GT",
-            "type": "TIME",
-            "identifier": {
-              "operator": "BETWEEN"
-            },
-            "condition": {
-              "start": "21:30",
-              "end": "04:30"
-            }
           }
         ]
       }
@@ -340,8 +288,7 @@
     "trigger": {
       "type": "SCHEDULED",
       "at": [
-        "SUN_SET",
-        "04:30"
+        "SUN_SET"
       ]
     },
     "conditions": [],
@@ -365,8 +312,7 @@
     "trigger": {
       "type": "SCHEDULED",
       "at": [
-        "SUN_RISE",
-        "21:30"
+        "SUN_RISE"
       ]
     },
     "conditions": [
@@ -407,7 +353,7 @@
     "trigger": {
       "type": "SCHEDULED",
       "at": [
-        "21:30"
+        "SUN_SET"
       ]
     },
     "conditions": [],
@@ -416,8 +362,7 @@
         "type": "DEVICE",
         "identifier": {
           "location": "ROOM 1",
-          "name": "BULB",
-          "number": 2
+          "name": "NIGHT BULB"
         },
         "update": {
           "value": 1
@@ -431,7 +376,7 @@
     "trigger": {
       "type": "SCHEDULED",
       "at": [
-        "04:30"
+        "SUN_RISE"
       ]
     },
     "conditions": [
@@ -441,8 +386,7 @@
         "type": "DEVICE",
         "identifier": {
           "location": "ROOM 1",
-          "name": "BULB",
-          "number": 2
+          "name": "NIGHT BULB"
         },
         "update": {
           "value": 0
@@ -451,7 +395,7 @@
     ]
   },
   {
-    "name": "HALL 3 Light On",
+    "name": "HALL Lights On",
     "state": "active",
     "trigger": {
       "type": "SCHEDULED",
@@ -472,11 +416,22 @@
         "update": {
           "value": 1
         }
+      },
+      {
+        "type": "DEVICE",
+        "identifier": {
+          "location": "HALL 2",
+          "name": "BULB",
+          "number": 1
+        },
+        "update": {
+          "value": 1
+        }
       }
     ]
   },
   {
-    "name": "HALL 3 Light Off",
+    "name": "HALL Light Off",
     "state": "active",
     "trigger": {
       "type": "SCHEDULED",
@@ -497,16 +452,27 @@
         "update": {
           "value": 0
         }
+      },
+      {
+        "type": "DEVICE",
+        "identifier": {
+          "location": "HALL 1",
+          "name": "BULB",
+          "number": 1
+        },
+        "update": {
+          "value": 0
+        }
       }
     ]
   },
   {
-    "name": "HALL 2 Light On",
+    "name": "HALL Night Light On",
     "state": "active",
     "trigger": {
       "type": "SCHEDULED",
       "at": [
-        "SUN_SET"
+        "21:30"
       ]
     },
     "conditions": [],
@@ -515,8 +481,7 @@
         "type": "DEVICE",
         "identifier": {
           "location": "HALL 2",
-          "name": "BULB",
-          "number": 1
+          "name": "NIGHT BULB"
         },
         "update": {
           "value": 1
@@ -525,9 +490,8 @@
       {
         "type": "DEVICE",
         "identifier": {
-          "location": "HALL 2",
-          "name": "BULB",
-          "number": 2
+          "location": "HALL 1",
+          "name": "NIGHT BULB"
         },
         "update": {
           "value": 1
@@ -536,12 +500,12 @@
     ]
   },
   {
-    "name": "HALL 2 Light Off",
+    "name": "HALL Night Light Off",
     "state": "active",
     "trigger": {
       "type": "SCHEDULED",
       "at": [
-        "SUN_RISE"
+        "04:30"
       ]
     },
     "conditions": [],
@@ -550,8 +514,7 @@
         "type": "DEVICE",
         "identifier": {
           "location": "HALL 2",
-          "name": "BULB",
-          "number": 1
+          "name": "NIGHT BULB"
         },
         "update": {
           "value": 0
@@ -560,9 +523,8 @@
       {
         "type": "DEVICE",
         "identifier": {
-          "location": "HALL 2",
-          "name": "BULB",
-          "number": 2
+          "location": "HALL 1",
+          "name": "NIGHT BULB"
         },
         "update": {
           "value": 0
